@@ -1,4 +1,6 @@
 # Super-duper-comic-store
 
 
-file:///home/hpghy/Downloads/Untitled%20design.png
+file:///home/hpghy/Downloads/Untitled%20design.png![Uploading image.png…]()
+
+
