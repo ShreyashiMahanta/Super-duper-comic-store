@@ -74,6 +74,7 @@ AFRAME.registerComponent("comic",{
             color : '#F3EAC0',
 
         })
+        entityEl.setAttribute("cursor-listener",{})
         return entityEl;
         
     }
