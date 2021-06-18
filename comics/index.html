@@ -7,12 +7,12 @@
     <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
     <script src = 'js/comics.js'></script>
     <script src = 'js/cursorEvent.js'></script>
+    <script src = 'js/infoBanner.js'></script>
 </head>
-<body>
-    <a-scene>
+script?   <a-scene>
 
         <a-sky id = "main-container" color = "#1E2640"></a-sky>
-        <a-entity id="comics-container" comic cursor-listener></a-entity>
+        <a-entity id="comics-container" comic ></a-entity>
 
         
         <a-camera id="camera" wasd-controls="enabled:false;">
@@ -26,9 +26,14 @@
         <a-entity
         id="app-title"
         position="0 0.73 -1"
-        text="font: exo2bold; align: center; width: 2; color: #7EC8E3; value: VIRTUAL COMIC STORE"
-      >
+        text="font: exo2bold; align: center; width: 2; color: #7EC8E3; value: VIRTUAL COMIC STORE"></a-entity>
 
+        <a-entity
+        id = "fadeBackground"
+        material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6"
+        visible="false"
+        cursor-listener
+        ></a-entity>
 
     </a-scene>
 </body>

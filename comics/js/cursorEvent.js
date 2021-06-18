@@ -6,6 +6,22 @@ AFRAME.registerComponent("cursor-listener",{
         this.handleMouseEnter();
         this.handleMouseLeave();
     },
+
+    update : function(){
+        const fadeBackgroundEl = document.querySelector("#fadeBackground");
+
+        banner = fadeBackgroundEl.children;
+
+        if (banner.length > 0){
+            var i;
+            for(i = 0; i <= banner.length; i++){
+                fadeBackgroundEl.removeChild(banner[i]);
+            }
+        }
+        else{
+            this.handleMouseClickEvent();
+        }
+    },
     handlePlaces : function(){
         const id = this.el.getAttribute("id");
         const comicId = ["archie","HGTTG","star-trek","tinkle"];
@@ -36,6 +52,36 @@ AFRAME.registerComponent("cursor-listener",{
                        // opacity : 1
                     })
                 }
+            }
+        })
+    },
+
+    handleMouseClickEvent : function(){
+        this.el.addEventListener("click",()=>{
+            const {selectedItemId} = this.data;
+
+            const fadeBackground = document.querySelector("#fadeBackground");
+            const titleEl = document.querySelector("#app-title");
+            const cursorEl = document.querySelector("#camera_cursor");
+
+            if(selectedItemId){
+                fadeBackground.setAttribute("visible",true);
+                titleEl.setAttribute("visible", false);
+                cursorEl.setAttribute("position", { x: 0, y: 0, z: -1 });
+                cursorEl.setAttribute("geometry", {
+                  radiusInner: 0.03,
+                  radiusOuter: 0.04
+                    });
+                    fadeBackground.setAttribute("info",{itemId : selectedItemId});
+            }
+            else{
+                fadeBackground.setAttribute("visible",false);
+                titleEl.setAttribute("visible",true);
+                cursorEl.setAttribute("position", { x: 0, y: 0, z: -3 });
+                cursorEl.setAttribute("geometry", {
+                  radiusInner: 0.08,
+                  radiusOuter: 0.12,
+                });
             }
         })
     }
